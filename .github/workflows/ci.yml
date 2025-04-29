@@ -13,8 +13,9 @@ jobs:
   build:
     uses: ./.github/workflows/mavenBuild.yml
     with:
-      maven-goals: clean verify -Pjavadoc -DskipTests -Dcbi-ecj-version=99.99
+      maven-goals: clean verify -DskipTests -Dcbi-ecj-version=99.99
       submodules: true
       extra-setup: |
         git submodule update --remote
         mvn clean install -U -pl :eclipse-sdk-prereqs,:org.eclipse.jdt.core.compiler.batch -DlocalEcjVersion=99.99
+        mvn clean install -DskipTests -pl :org.eclipse.swt,:org.eclipse.swt.cocoa.macosx.x86_64,:org.eclipse.swt.cocoa.macosx.aarch64,:org.eclipse.swt.gtk.linux.aarch64,:org.eclipse.swt.gtk.linux.ppc64le,:org.eclipse.swt.gtk.linux.riscv64,:org.eclipse.swt.gtk.linux.x86_64,:org.eclipse.swt.win32.win32.aarch64,:org.eclipse.swt.win32.win32.x86_64
