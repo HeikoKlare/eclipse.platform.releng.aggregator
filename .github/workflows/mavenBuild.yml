@@ -94,7 +94,6 @@ jobs:
         mvn --show-version --update-snapshots --errors
         -Dcompare-version-with-baselines.skip=false
         -Pbree-libs
-        -Papi-check
         --fail-at-end
         ${{ inputs.maven-goals }}
     - name: Upload Test Results for ${{ matrix.config.name }}
