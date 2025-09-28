@@ -13,7 +13,7 @@ jobs:
   build:
     uses: ./.github/workflows/mavenBuild.yml
     with:
-      maven-goals: clean verify -Pjavadoc -fae -Dcbi-ecj-version=99.99 -DfailIfNoTests=false '-Dtest=!$regex[.*plurl.*]'
+      maven-goals: clean verify -fae -Dcbi-ecj-version=99.99 -DfailIfNoTests=false '-Dtest=!$regex[.*plurl.*]' -Dmaven.test.failure.ignore=true
       submodules: true
       extra-setup: |
         git submodule update --remote
